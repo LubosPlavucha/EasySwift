@@ -13,7 +13,7 @@ public class CoreDataUtil {
     
     
     public class func retrieve(managedObjectContext: NSManagedObjectContext, entityName: String, sortBy: String? = nil, isAscending:
-        Bool = true, predicate: NSPredicate? = nil, properties: NSArray? = nil, limit: Int? = nil) -> [AnyObject] {
+        Bool = true, predicate: NSPredicate? = nil, properties: Array<String>? = nil, limit: Int? = nil) -> [AnyObject] {
         
         let request = NSFetchRequest(entityName: entityName)
         request.returnsObjectsAsFaults = false
@@ -78,15 +78,42 @@ public class CoreDataUtil {
     
     
     // saves and commits new entity in default state
-    public class func insertAndCommit(managedObjectContext: NSManagedObjectContext, entityName: String) -> Result<AnyObject?, String> {
+    public class func insertAndCommit(managedObjectContext: NSManagedObjectContext, entityName: String) -> Result<AnyObject, String> {
         
         let newObject: AnyObject = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: managedObjectContext)
         
         let result = commit(managedObjectContext, rollbackIfError: true)
         if result.isSuccess() {
-            return .Success(newObject)
+            return Result(success: newObject)
         } else {
-            return .Failure(result.failure()!)
+            return Result(error: result.getFailureMessage()!)
+        }
+    }
+    
+    
+    // deletes and commits entities fetched by predicate
+    public class func deleteAndCommit(managedObjectContext: NSManagedObjectContext, entityName: String, predicate: NSPredicate) -> Result<Bool, String> {
+        
+        let entities = CoreDataUtil.retrieve(managedObjectContext, entityName: entityName, predicate: predicate) as! [NSManagedObject]
+        
+        if !entities.isEmpty {
+            for entity in entities {
+                managedObjectContext.deleteObject(entity)
+            }
+        }
+        return commit(managedObjectContext, rollbackIfError: true)
+    }
+    
+    
+    // deletes entities fetched by predicate
+    public class func delete(managedObjectContext: NSManagedObjectContext, entityName: String, predicate: NSPredicate) {
+        
+        let entities = CoreDataUtil.retrieve(managedObjectContext, entityName: entityName, predicate: predicate) as! [NSManagedObject]
+        
+        if !entities.isEmpty {
+            for entity in entities {
+                managedObjectContext.deleteObject(entity)
+            }
         }
     }
     
@@ -107,8 +134,8 @@ public class CoreDataUtil {
             if rollbackIfError {
                 managedObjectContext.rollback()
             }
-            return .Failure("Saving failed")  // TODO returns validation ?
+            return Result(error: "Saving failed")  // TODO returns validation ?
         }
-        return .Success(true)
+        return Result(success: true)
     }
 }

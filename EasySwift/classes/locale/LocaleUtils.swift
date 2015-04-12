@@ -16,10 +16,9 @@ public class LocaleUtils {
         private static var currencies: [String:String?] = {
             var currencyCodes = [String:String?]()
             for localeIdentifier in NSLocale.availableLocaleIdentifiers() {
-                let locale = NSLocale(localeIdentifier: localeIdentifier as String)
-                let currencyCode = locale.objectForKey(NSLocaleCurrencyCode) as String?
-                if currencyCode != nil {
-                    currencyCodes[currencyCode!] = locale.objectForKey(NSLocaleCurrencySymbol) as String?
+                let locale = NSLocale(localeIdentifier: localeIdentifier as! String)
+                if let currencyCode = locale.objectForKey(NSLocaleCurrencyCode) as? String {
+                    currencyCodes[currencyCode] = locale.objectForKey(NSLocaleCurrencySymbol) as? String
                 }
             }
             return currencyCodes
@@ -36,7 +35,7 @@ public class LocaleUtils {
         
         /** Return currency symbol for currency code. The currency code should be valid code derivable from locale. */
         public static func getCurrencySymbol(currencyCode: String) -> String? {
-            return currencies[currencyCode]?
+            return currencies[currencyCode]!
         }
 
     }

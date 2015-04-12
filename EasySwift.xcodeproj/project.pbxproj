@@ -20,6 +20,7 @@
 		6B4EBFD31A9BE1AF0088D730 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B4EBFC81A9BE1AF0088D730 /* Info.plist */; };
 		6B4EBFD61A9BE1BD0088D730 /* EasySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EBFD41A9BE1BD0088D730 /* EasySwiftTests.swift */; };
 		6B4EBFD71A9BE1BD0088D730 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B4EBFD51A9BE1BD0088D730 /* Info.plist */; };
+		6B55C69A1AA11A4700437196 /* Percentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B55C6991AA11A4700437196 /* Percentage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		6B4EBFC81A9BE1AF0088D730 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = EasySwift/Info.plist; sourceTree = SOURCE_ROOT; };
 		6B4EBFD41A9BE1BD0088D730 /* EasySwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EasySwiftTests.swift; path = EasySwiftTests/EasySwiftTests.swift; sourceTree = SOURCE_ROOT; };
 		6B4EBFD51A9BE1BD0088D730 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = EasySwiftTests/Info.plist; sourceTree = SOURCE_ROOT; };
+		6B55C6991AA11A4700437196 /* Percentage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Percentage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				6B4EBFC11A9BE1AF0088D730 /* DecimalNumberFactory.swift */,
+				6B55C6991AA11A4700437196 /* Percentage.swift */,
 			);
 			path = numbers;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				TargetAttributes = {
 					6B4959651A4CB7C200C113E2 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = D8KHRPA76A;
 					};
 					6B4959701A4CB7C300C113E2 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -304,6 +308,7 @@
 				6B4EBFCF1A9BE1AF0088D730 /* Result.swift in Sources */,
 				6B4EBFCB1A9BE1AF0088D730 /* CoreDataUtil.swift in Sources */,
 				6B4EBFCA1A9BE1AF0088D730 /* CloneUtil.swift in Sources */,
+				6B55C69A1AA11A4700437196 /* Percentage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -401,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -414,6 +419,7 @@
 		6B49597D1A4CB7C300C113E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -429,6 +435,7 @@
 		6B49597E1A4CB7C300C113E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

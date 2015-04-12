@@ -21,7 +21,7 @@ public class StringBuilder {
     Return the current length of the String object
     */
     public var length: Int {
-        return countElements(stringValue)
+        return count(stringValue)
     }
     /**
     Append a String to the object
