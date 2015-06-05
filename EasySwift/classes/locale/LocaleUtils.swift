@@ -9,16 +9,17 @@ public class LocaleUtils {
     
     public struct Currency {
         
-        
-        // TODO FIXME: why am I not using "NSLocale.commonISOCurrencyCodes()" ??
-        
         /** load currency codes and currency symbols - derived from all available locales */
         private static var currencies: [String:String?] = {
             var currencyCodes = [String:String?]()
             for localeIdentifier in NSLocale.availableLocaleIdentifiers() {
                 let locale = NSLocale(localeIdentifier: localeIdentifier as! String)
                 if let currencyCode = locale.objectForKey(NSLocaleCurrencyCode) as? String {
-                    currencyCodes[currencyCode] = locale.objectForKey(NSLocaleCurrencySymbol) as? String
+                    if currencyCode == "USD" {
+                        currencyCodes[currencyCode] = "$"   // the runtime return "US$" for US Dollar, which doesn't look nice -> check if this is changed in next iOS versions
+                    } else {
+                        currencyCodes[currencyCode] = locale.objectForKey(NSLocaleCurrencySymbol) as? String
+                    }
                 }
             }
             return currencyCodes

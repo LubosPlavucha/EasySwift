@@ -130,11 +130,11 @@ public class CoreDataUtil {
         
         var error: NSError? = nil
         if managedObjectContext.hasChanges && !managedObjectContext.save(&error) {
-            NSLog("Could not save \(error), \(error?.userInfo)")  // TODO error is nil when saving fails ?
+            NSLog("Could not save \(error), \(error?.userInfo)")
             if rollbackIfError {
                 managedObjectContext.rollback()
             }
-            return Result(error: "Saving failed")  // TODO returns validation ?
+            return Result(error: "Saving failed")
         }
         return Result(success: true)
     }
