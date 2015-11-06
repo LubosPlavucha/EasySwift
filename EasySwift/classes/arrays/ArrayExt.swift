@@ -13,7 +13,7 @@
         
         var indexes:[C.Index] = []
         for value in values {
-            if let index = find(domain, value) {
+            if let index = domain.indexOf(value) {
                 indexes.append(index)
             }
         }

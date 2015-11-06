@@ -15,10 +15,10 @@ public class CloneUtil {
     
     public class func insertClone(managedObject: NSManagedObject, managedObjectContext: NSManagedObjectContext, entityName: String) -> NSManagedObject {
         
-        var clone = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: managedObjectContext) as! NSManagedObject
+        let clone = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: managedObjectContext) 
         
         for propertyName in managedObject.entity.propertiesByName.keys {
-            clone.setValue(managedObject.valueForKey(propertyName as! String), forKey: propertyName as! String)
+            clone.setValue(managedObject.valueForKey(propertyName ), forKey: propertyName )
         }
         return clone
     }

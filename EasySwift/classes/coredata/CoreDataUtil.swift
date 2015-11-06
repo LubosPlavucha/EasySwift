@@ -24,7 +24,7 @@ public class CoreDataUtil {
         }
         
         if (sortBy != nil) {
-            var sorter = NSSortDescriptor(key:sortBy! , ascending:isAscending)
+            let sorter = NSSortDescriptor(key:sortBy! , ascending:isAscending)
             request.sortDescriptors = [sorter]
         }
             
@@ -34,7 +34,13 @@ public class CoreDataUtil {
         }
         
         var error: NSError? = nil
-        var fetchedResult = managedObjectContext.executeFetchRequest(request, error: &error)
+        var fetchedResult: [AnyObject]?
+        do {
+            fetchedResult = try managedObjectContext.executeFetchRequest(request)
+        } catch let error1 as NSError {
+            error = error1
+            fetchedResult = nil
+        }
         if error != nil {
             NSLog("errore: \(error)")
         }
@@ -46,7 +52,13 @@ public class CoreDataUtil {
     public class func getByObjectId(managedObjectContext: NSManagedObjectContext, objectId: NSManagedObjectID) -> AnyObject? {
         
         var error: NSError? = nil
-        let entity = managedObjectContext.existingObjectWithID(objectId, error: &error)
+        let entity: NSManagedObject?
+        do {
+            entity = try managedObjectContext.existingObjectWithID(objectId)
+        } catch let error1 as NSError {
+            error = error1
+            entity = nil
+        }
         
         if error != nil {
             NSLog("errore: \(error)")
@@ -129,12 +141,17 @@ public class CoreDataUtil {
     public class func commit(managedObjectContext: NSManagedObjectContext, rollbackIfError:Bool = false) -> Result<Bool, String> {
         
         var error: NSError? = nil
-        if managedObjectContext.hasChanges && !managedObjectContext.save(&error) {
-            NSLog("Could not save \(error), \(error?.userInfo)")
-            if rollbackIfError {
-                managedObjectContext.rollback()
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+            } catch let error1 as NSError {
+                error = error1
+                NSLog("Could not save \(error), \(error?.userInfo)")
+                if rollbackIfError {
+                    managedObjectContext.rollback()
+                }
+                return Result(error: "Saving failed")
             }
-            return Result(error: "Saving failed")
         }
         return Result(success: true)
     }

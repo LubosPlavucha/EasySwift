@@ -14,12 +14,12 @@ public class DecimalNumberFactory {
     
     public class func getDecimal(value:Int, scale:Int = 0) -> NSDecimalNumber {
         var negative = value < 0
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.minimumFractionDigits = scale
         numberFormatter.maximumFractionDigits = scale
         numberFormatter.numberStyle = .DecimalStyle
         numberFormatter.roundingMode = .RoundUp
-        var number = numberFormatter.stringFromNumber(value)
+        let number = numberFormatter.stringFromNumber(value)
         return NSDecimalNumber(string: number)
     }
 
@@ -36,7 +36,7 @@ public class DecimalNumberFactory {
     public class func makePositive(value:NSDecimalNumber) -> NSDecimalNumber {
         // make number positive, but only if it is negative, otherwise return the same number
         if value.compare(NSDecimalNumber.zero()) == .OrderedAscending {
-            var negative = NSDecimalNumber(mantissa: 1, exponent: 0, isNegative: true)
+            let negative = NSDecimalNumber(mantissa: 1, exponent: 0, isNegative: true)
             return value.decimalNumberByMultiplyingBy(negative) // multiplying negative number by negative number brings us positive one
         }
         return value

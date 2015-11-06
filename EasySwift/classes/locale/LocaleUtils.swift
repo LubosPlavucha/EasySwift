@@ -13,7 +13,7 @@ public class LocaleUtils {
         private static var currencies: [String:String?] = {
             var currencyCodes = [String:String?]()
             for localeIdentifier in NSLocale.availableLocaleIdentifiers() {
-                let locale = NSLocale(localeIdentifier: localeIdentifier as! String)
+                let locale = NSLocale(localeIdentifier: localeIdentifier )
                 if let currencyCode = locale.objectForKey(NSLocaleCurrencyCode) as? String {
                     if currencyCode == "USD" {
                         currencyCodes[currencyCode] = "$"   // the runtime return "US$" for US Dollar, which doesn't look nice -> check if this is changed in next iOS versions
