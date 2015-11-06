@@ -18,7 +18,9 @@ public class Reachability {
         
         var response: NSURLResponse?
         
-        var data = (try? NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)) as NSData?
+        do {
+            try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response) 
+        } catch {}
         
         if let httpResponse = response as? NSHTTPURLResponse where httpResponse.statusCode == 200 {
             status = true

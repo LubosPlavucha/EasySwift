@@ -13,7 +13,6 @@ public class DecimalNumberFactory {
     
     
     public class func getDecimal(value:Int, scale:Int = 0) -> NSDecimalNumber {
-        var negative = value < 0
         let numberFormatter = NSNumberFormatter()
         numberFormatter.minimumFractionDigits = scale
         numberFormatter.maximumFractionDigits = scale
