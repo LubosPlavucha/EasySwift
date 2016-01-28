@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B14BB231C419D2F00778C41 /* DecimalNumberComparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14BB221C419D2F00778C41 /* DecimalNumberComparator.swift */; };
+		6B14BB241C419F1400778C41 /* DecimalNumberComparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14BB221C419D2F00778C41 /* DecimalNumberComparator.swift */; };
 		6B3BEC6E1B49ABDE0036EEEF /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EBFB71A9BE1AF0088D730 /* ArrayExt.swift */; };
 		6B3BEC6F1B49ABDE0036EEEF /* CloneUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EBFB91A9BE1AF0088D730 /* CloneUtil.swift */; };
 		6B3BEC701B49ABDE0036EEEF /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4EBFBB1A9BE1AF0088D730 /* CoreDataUtil.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B14BB221C419D2F00778C41 /* DecimalNumberComparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalNumberComparator.swift; sourceTree = "<group>"; };
 		6B3BEC361B49AA1C0036EEEF /* EasySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4959661A4CB7C200C113E2 /* EasySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4EBFB71A9BE1AF0088D730 /* ArrayExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		6B4EBFC01A9BE1AF0088D730 /* numbers */ = {
 			isa = PBXGroup;
 			children = (
+				6B14BB221C419D2F00778C41 /* DecimalNumberComparator.swift */,
 				6B4EBFC11A9BE1AF0088D730 /* DecimalNumberFactory.swift */,
 				6B55C6991AA11A4700437196 /* Percentage.swift */,
 			);
@@ -289,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B14BB241C419F1400778C41 /* DecimalNumberComparator.swift in Sources */,
 				6B3BEC6E1B49ABDE0036EEEF /* ArrayExt.swift in Sources */,
 				6B3BEC6F1B49ABDE0036EEEF /* CloneUtil.swift in Sources */,
 				6B3BEC701B49ABDE0036EEEF /* CoreDataUtil.swift in Sources */,
@@ -310,6 +315,7 @@
 				6B4EBFC91A9BE1AF0088D730 /* ArrayExt.swift in Sources */,
 				6B4EBFCC1A9BE1AF0088D730 /* LocaleUtils.swift in Sources */,
 				6B4EBFCD1A9BE1AF0088D730 /* Reachability.swift in Sources */,
+				6B14BB231C419D2F00778C41 /* DecimalNumberComparator.swift in Sources */,
 				6B4EBFCE1A9BE1AF0088D730 /* DecimalNumberFactory.swift in Sources */,
 				6B4EBFD01A9BE1AF0088D730 /* StringBuilder.swift in Sources */,
 				6B4EBFCF1A9BE1AF0088D730 /* Result.swift in Sources */,

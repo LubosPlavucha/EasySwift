@@ -36,9 +36,11 @@ public class LocaleUtils {
         
         /** Return currency symbol for currency code. The currency code should be valid code derivable from locale. */
         public static func getCurrencySymbol(currencyCode: String) -> String? {
-            return currencies[currencyCode]!
+            if let symbol = currencies[currencyCode] {
+                return symbol
+            }
+            return ""
         }
-
     }
     
 }
