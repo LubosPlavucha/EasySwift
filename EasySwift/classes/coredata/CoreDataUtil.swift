@@ -155,4 +155,20 @@ public class CoreDataUtil {
         }
         return Result(success: true)
     }
+    
+    
+    // this version of the commit returns NSError (where the validation message can be encapsulated)
+    public class func commitAndReturnError(managedObjectContext: NSManagedObjectContext, rollbackIfError: Bool = false) throws {
+        
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+            } catch let error as NSError {
+                if rollbackIfError {
+                    managedObjectContext.rollback()
+                }
+                throw error
+            }
+        }
+    }
 }
