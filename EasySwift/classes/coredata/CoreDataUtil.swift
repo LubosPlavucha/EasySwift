@@ -13,10 +13,10 @@ public class CoreDataUtil {
     
     
     public class func retrieve(managedObjectContext: NSManagedObjectContext, entityName: String, sortBy: String? = nil, isAscending:
-        Bool = true, predicate: NSPredicate? = nil, properties: Array<String>? = nil, limit: Int? = nil) -> [AnyObject] {
+        Bool = true, predicate: NSPredicate? = nil, properties: Array<String>? = nil, limit: Int? = nil, returnsObjectsAsFaults: Bool? = false) -> [AnyObject] {
         
         let request = NSFetchRequest(entityName: entityName)
-        request.returnsObjectsAsFaults = false
+        request.returnsObjectsAsFaults = returnsObjectsAsFaults!
         request.predicate = predicate
             
         if limit != nil {
