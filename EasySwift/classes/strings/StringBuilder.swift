@@ -1,7 +1,7 @@
-public class StringBuilder {
+open class StringBuilder {
     
     
-    private var stringValue: String
+    fileprivate var stringValue: String
     /**
     Construct with initial String contents
     
@@ -14,13 +14,13 @@ public class StringBuilder {
     Return the String object
     :return: String
     */
-    public func toString() -> String {
+    open func toString() -> String {
         return stringValue
     }
     /**
     Return the current length of the String object
     */
-    public var length: Int {
+    open var length: Int {
         return stringValue.characters.count
     }
     /**
@@ -29,7 +29,7 @@ public class StringBuilder {
     - parameter string: String
     :return: reference to this StringBuilder instance
     */
-    public func append(string: String) -> StringBuilder {
+    open func append(_ string: String) -> StringBuilder {
         stringValue += string
         return self
     }
@@ -38,7 +38,7 @@ public class StringBuilder {
     - parameter value: a value supporting the Printable protocol
     :return: reference to this StringBuilder instance
     */
-    public func append<T: CustomStringConvertible>(value: T) -> StringBuilder {
+    open func append<T: CustomStringConvertible>(_ value: T) -> StringBuilder {
         stringValue += value.description
         return self
     }
@@ -48,7 +48,7 @@ public class StringBuilder {
     - parameter string: String
     :return: reference to this StringBuilder instance
     */
-    public func appendLine(string: String) -> StringBuilder {
+    open func appendLine(_ string: String) -> StringBuilder {
         stringValue += string + "\n"
         return self
     }
@@ -58,7 +58,7 @@ public class StringBuilder {
     - parameter value: a value supporting the Printable protocol
     :return: reference to this StringBuilder instance
     */
-    public func appendLine<T: CustomStringConvertible>(value: T) -> StringBuilder {
+    open func appendLine<T: CustomStringConvertible>(_ value: T) -> StringBuilder {
         stringValue += value.description + "\n"
         return self
     }
@@ -67,7 +67,7 @@ public class StringBuilder {
     
     :return: reference to this StringBuilder instance
     */
-    public func clear() -> StringBuilder {
+    open func clear() -> StringBuilder {
         stringValue = ""
         return self
     }

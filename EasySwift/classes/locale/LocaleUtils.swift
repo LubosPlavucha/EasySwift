@@ -4,21 +4,21 @@
 
 import Foundation
 
-public class LocaleUtils {
+open class LocaleUtils {
     
     
     public struct Currency {
         
         /** load currency codes and currency symbols - derived from all available locales */
-        private static var currencies: [String:String?] = {
+        fileprivate static var currencies: [String:String?] = {
             var currencyCodes = [String:String?]()
-            for localeIdentifier in NSLocale.availableLocaleIdentifiers() {
-                let locale = NSLocale(localeIdentifier: localeIdentifier )
-                if let currencyCode = locale.objectForKey(NSLocaleCurrencyCode) as? String {
+            for localeIdentifier in Locale.availableIdentifiers {
+                let locale = Locale(identifier: localeIdentifier )
+                if let currencyCode = (locale as NSLocale).object(forKey: NSLocale.Key.currencyCode) as? String {
                     if currencyCode == "USD" {
                         currencyCodes[currencyCode] = "$"   // the runtime return "US$" for US Dollar, which doesn't look nice -> check if this is changed in next iOS versions
                     } else {
-                        currencyCodes[currencyCode] = locale.objectForKey(NSLocaleCurrencySymbol) as? String
+                        currencyCodes[currencyCode] = (locale as NSLocale).object(forKey: NSLocale.Key.currencySymbol) as? String
                     }
                 }
             }
@@ -35,7 +35,7 @@ public class LocaleUtils {
         }
         
         /** Return currency symbol for currency code. The currency code should be valid code derivable from locale. */
-        public static func getCurrencySymbol(currencyCode: String) -> String? {
+        public static func getCurrencySymbol(_ currencyCode: String) -> String? {
             if let symbol = currencies[currencyCode] {
                 return symbol
             }

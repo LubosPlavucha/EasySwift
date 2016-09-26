@@ -9,11 +9,11 @@
 
 
     /** The method is extension of standard swift find method. It takes not only one object, returning its index in Array, but multiple ones. */
-    public func find<C : CollectionType where C.Generator.Element : Equatable>(domain: C, values: [C.Generator.Element]) -> [C.Index] {
+    public func find<C : Collection>(_ domain: C, values: [C.Iterator.Element]) -> [C.Index] where C.Iterator.Element : Equatable {
         
         var indexes:[C.Index] = []
         for value in values {
-            if let index = domain.indexOf(value) {
+            if let index = domain.index(of: value) {
                 indexes.append(index)
             }
         }

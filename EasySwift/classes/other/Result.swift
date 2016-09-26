@@ -10,8 +10,8 @@ public struct Result<T, E> {
     
     
     
-    private var success: T?
-    private var error: E?
+    fileprivate var success: T?
+    fileprivate var error: E?
     
     
     public init (success: T) {

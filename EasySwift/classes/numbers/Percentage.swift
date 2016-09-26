@@ -8,23 +8,23 @@
 
 import Foundation
 
-public class Percentage {
+open class Percentage {
     
     
-    public class func percentageOfNumberFromNumber(baseNumber: NSDecimalNumber, quotientNumber: NSDecimalNumber) -> Float {
-        if(baseNumber.compare(NSDecimalNumber.zero()) == .OrderedSame) {
+    open class func percentageOfNumberFromNumber(_ baseNumber: NSDecimalNumber, quotientNumber: NSDecimalNumber) -> Float {
+        if(baseNumber.compare(NSDecimalNumber.zero) == .orderedSame) {
             return 0;	// number cannot be divided by 0
         }
-        return quotientNumber.decimalNumberByDividingBy(baseNumber).floatValue * 100
+        return quotientNumber.dividing(by: baseNumber).floatValue * 100
     }
     
     
-    public class func numberFromPercentageOfNumber(baseNumber: NSDecimalNumber, percentage: NSDecimalNumber) -> Double {
+    open class func numberFromPercentageOfNumber(_ baseNumber: NSDecimalNumber, percentage: NSDecimalNumber) -> Double {
         return (baseNumber.doubleValue / 100) * percentage.doubleValue
     }
     
     
-    public class func numberFromPercentageOfNumber(baseNumber: Float, percentage: Float) -> Float {
+    open class func numberFromPercentageOfNumber(_ baseNumber: Float, percentage: Float) -> Float {
         return (baseNumber / 100) * percentage
     }
     

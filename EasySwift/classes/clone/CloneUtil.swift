@@ -10,15 +10,15 @@ import Foundation
 import CoreData
 
 
-public class CloneUtil {
+open class CloneUtil {
     
     
-    public class func insertClone(managedObject: NSManagedObject, managedObjectContext: NSManagedObjectContext, entityName: String) -> NSManagedObject {
+    open class func insertClone(_ managedObject: NSManagedObject, managedObjectContext: NSManagedObjectContext, entityName: String) -> NSManagedObject {
         
-        let clone = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: managedObjectContext) 
+        let clone = NSEntityDescription.insertNewObject(forEntityName: entityName, into: managedObjectContext) 
         
         for propertyName in managedObject.entity.propertiesByName.keys {
-            clone.setValue(managedObject.valueForKey(propertyName ), forKey: propertyName )
+            clone.setValue(managedObject.value(forKey: propertyName ), forKey: propertyName )
         }
         return clone
     }

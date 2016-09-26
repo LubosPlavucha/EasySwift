@@ -2,35 +2,35 @@
 
 import Foundation
 
-public class DecimalNumberComparator {
+open class DecimalNumberComparator {
  
     
-    public class func greaterThanZero(value: NSDecimalNumber) -> Bool {
-        if value.compare(NSDecimalNumber.zero()) == .OrderedDescending {
+    open class func greaterThanZero(_ value: NSDecimalNumber) -> Bool {
+        if value.compare(NSDecimalNumber.zero) == .orderedDescending {
             return true
         }
         return false
     }
     
     
-    public class func lessThanZero(value: NSDecimalNumber) -> Bool {
-        if value.compare(NSDecimalNumber.zero()) == .OrderedAscending {
+    open class func lessThanZero(_ value: NSDecimalNumber) -> Bool {
+        if value.compare(NSDecimalNumber.zero) == .orderedAscending {
             return true
         }
         return false
     }
     
     
-    public class func equalsZero(value: NSDecimalNumber) -> Bool {
-        if value.compare(NSDecimalNumber.zero()) == .OrderedSame {
+    open class func equalsZero(_ value: NSDecimalNumber) -> Bool {
+        if value.compare(NSDecimalNumber.zero) == .orderedSame {
             return true
         }
         return false
     }
     
     /** Compares if 2 decimals equals. */
-    public class func equals(value1: NSDecimalNumber, value2: NSDecimalNumber) -> Bool {
-        if value1.compare(value2) == .OrderedSame {
+    open class func equals(_ value1: NSDecimalNumber, value2: NSDecimalNumber) -> Bool {
+        if value1.compare(value2) == .orderedSame {
             return true
         }
         return false
@@ -38,8 +38,8 @@ public class DecimalNumberComparator {
     
     
     /** Compares if the first decimal is greater than the second one. */
-    public class func greaterThan(value1: NSDecimalNumber, value2: NSDecimalNumber) -> Bool {
-        if value1.compare(value2) == .OrderedDescending {
+    open class func greaterThan(_ value1: NSDecimalNumber, value2: NSDecimalNumber) -> Bool {
+        if value1.compare(value2) == .orderedDescending {
             return true
         }
         return false
@@ -47,8 +47,8 @@ public class DecimalNumberComparator {
     
     
     /** Compares if the first decimal is less than the second one. */
-    public class func lessThan(value1: NSDecimalNumber, value2: NSDecimalNumber) -> Bool {
-        if value1.compare(value2) == .OrderedAscending {
+    open class func lessThan(_ value1: NSDecimalNumber, value2: NSDecimalNumber) -> Bool {
+        if value1.compare(value2) == .orderedAscending {
             return true
         }
         return false
